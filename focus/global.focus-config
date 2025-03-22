@@ -1,0 +1,600 @@
+[16]  # Version number. Do not delete.
+
+[[workspace]]
+# These directories and files will be scanned when a workspace is opened so that search etc. works.
+D:/Repository/axia-sw
+D:/Repository/NotKyon
+
+[ignore]
+# Files and directories matching the following wildcards will not be loaded or descended into
+# Example:
+# *.js - will ignore all files with a '.js' extension
+# tmp* - will ignore any files or directories which start with 'tmp'
+# C:/project/dirname/** - will ignore everything under `dirname`
+# C:/project/dirname/*  - will ignore all files under `dirname`, but not recursively
+.svn
+.git
+__pycache__
+*woff?
+*so.*
+.png
+.jpg
+.jpeg
+.dds
+.gif
+.ico
+.bmp
+.tga
+.mp3
+.flac
+.wav
+.ogg
+.ogv
+.DS_Store
+*~
+bin
+obj
+.bin
+.obj
+.o
+.lib
+.a
+
+[allow]
+# Files and directories matching the wildcards in this section will be loaded, even if they are ignored in the previous section.
+# NOTE: known binary file extensions are ignored by default (*.exe, *.obj etc.). If this is not what you want, you can explicitly allow them here.
+.focus-*
+
+[file associations]
+# Optional file associations in the format `<wildcard1> <wildcard2> ... : <language>`
+# Example:
+# *.hpp *.hh *.h : cpp
+# todo.txt : todo
+
+
+[[settings]]
+
+maximize_on_start:                      false
+open_on_the_biggest_monitor:            false
+cursor_as_block:                        true
+cursor_blink_time_in_seconds:           5
+highlight_selection_occurrences:        true
+show_paste_effect:                      true
+disable_file_open_close_animations:     false
+double_shift_to_search_in_workspace:    false
+tab_size:                               4
+indent_using:                           tabs  # options: spaces, tabs
+strip_trailing_whitespace_on_save:      except_lines_with_cursor  # options: all, except_lines_with_cursor, disabled
+smooth_scrolling:                       true
+scroll_beyond_last_line:                true
+line_height_scale_percent:              120
+max_editor_width:                       -1     # This is in pixels
+can_cancel_go_to_line:                  true
+copy_whole_line_without_selection:      false
+editor_history_size:                    1024
+line_wrap_is_on_by_default:             false
+show_line_numbers:                      true
+colored_titlebar:                       true   # Windows 11+ only
+hide_mouse_when_typing:                 false
+highlight_line_with_cursor:             true
+draw_indent_guides:                     true
+auto_surround_with_brackets_and_quotes: false
+auto_close_brackets:                    false
+prefer_system_file_dialogs:             false  # Windows only
+status_bar_show_cursors_off_screen:     true
+persist_local_search_results:           false  # if true, search results will stay highlighted and you have to dismiss them using the `escape` action
+insert_final_newline_on_save:           true   # Added in v0.3.5
+
+build_panel_stays_in_one_place:         false  # if false, the build panel will flip to the inactive pane in two pane layouts
+build_panel_line_wrap_always_on:        true
+build_panel_width_percent:              50
+build_panel_height_percent:             50
+
+save_all_file_backed_buffers_on_build:  true
+save_current_buffer_on_build:           true
+
+# Added after migration to version [3]
+disable_viewport_chasing_cursor_near_the_edge: false  # if true, the viewport will not scroll smoothly to cursor when you move the cursor outside it by small amounts
+status_bar_show_selected_text_length:          true
+
+# Added after migration to version [5]
+window_width:                                  -1
+window_height:                                 -1
+status_bar_position:                           bottom  # options: top, bottom
+load_most_recent_project_on_start:             false
+color_preview_popup:                           enabled  # options: enabled, minimized, disabled
+
+# Added after migration to version [6]
+search_is_case_sensitive_when_uppercase_present: true
+projects_sorting_order:                          most_recent_first  #options: most_recent_first, alphabetical, alphabetical_no_case
+
+# Added after migration to version [16]
+show_ruler_at_column:                            80
+detect_indentation:                              true  # if true, existing files will be scanned to detect indentation, new files will use the `indent_using` and `tab_size` settings
+status_bar_show_indentation:                     true
+status_bar_show_line_col:                        true
+show_scrollbar_marks:                            true
+scrollbar_width_scale:                           1.0
+scrollbar_min_opacity:                           0.0   # if you want the scrollbar to be always visible, set this to 1.0
+scrollbar_max_opacity:                           1.0
+scrollbar_fade_in_sensitivity:                   10.0  # controls when the scrollbar appears as the mouse pointer gets close
+scrollbar_fade_out_delay_seconds:                2.0   # how long the scrollbar stays visible after scrolling
+
+# This is an example configuration for build commands
+
+[[build commands]]
+open_panel_on_build: true
+
+[Run Odin File]
+build_command: odin run "%FILE%" -strict-style -vet -file -collection:pkg=D:/Repository/NotKyon/pkg
+build_working_dir: %FILE_DIR%
+#build_working_dir: D:/Repository/NotKyon
+#key_binding: Ctrl-X Ctrl-M {C -strict-style -vettrl}-F
+key_binding: F7
+
+# [[build commands]]
+# build_working_dir:      <build working dir -strict-style -vet for all commands>
+# open_panel_on_build:    true  #  <- any settings specified here will apply to all commands unless overridden
+# close_panel_on_success: false
+
+# [Debug Build And Run]   # <- command name. Can be arbitrary
+# build_command:          jai main.jai  # should be an executable or a script
+# build_working_dir:      <build working dir for this command only>
+# timeout_in_seconds:     5             # if you don't want a timeout, don't specify it
+# run_command:            test.exe      # will be run if build succeeds
+# run_working_dir:        W:/focus      # working dir for the run command
+# key_binding:            F5
+
+# [Run]                   # <- You could have commands that don't build anything and just run something
+# run_command:            test.exe
+# run_working_dir:        /home/user/test
+# key_binding:            Ctrl-F5
+
+# [Release]
+# build_command:          jai first.jai - release
+# key_binding:            F9
+
+
+[[keymap]]
+
+# - The first matching combination will be used, so order matters
+
+[editors]   # <- this means that the following key combos will apply only when editing text
+
+# Key combination           Action
+Alt-F4                      quit
+Ctrl-X Ctrl-C               quit
+
+#Ctrl-D                      select_word_or_create_another_cursor
+#Ctrl-Shift-A                select_all_occurrences
+Alt-Shift-5                 select_all_occurrences
+
+#Ctrl-Shift-D                duplicate_lines
+Ctrl-,                      duplicate_lines
+
+# These shortcuts can be annoying to accidentally use, so they are commented out by default
+# Shift-Backspace             delete_line_and_go_up
+# Shift-Delete                delete_line
+
+Ctrl-K                      delete_line
+Ctrl-Shift-Delete           delete_to_end_of_line
+Ctrl-Shift-Backspace        delete_to_start_of_line
+
+Alt-ArrowUp                 move_selected_lines_up
+Alt-ArrowDown               move_selected_lines_down
+
+Alt-P                       move_selected_lines_up
+Alt-N                       move_selected_lines_down
+
+#Ctrl-J                      join_lines
+#Ctrl-Shift-J                join_lines_no_spaces_in_between
+
+Tab                         indent_or_go_to_next_tabstop
+Shift-Tab                   unindent
+
+Ctrl-]                      indent
+Ctrl-[                      unindent
+
+#Ctrl-S                      save
+#Ctrl-Shift-S                save_as
+Ctrl-X Ctrl-S               save
+{Shift}-Ctrl-X Shift-Ctrl-S save_as
+Ctrl-X S                    save_all
+
+Alt-Minus                   move_to_previous_editor_history
+Alt-Plus                    move_to_next_editor_history
+
+Alt-ArrowLeft               move_to_previous_buffer
+Alt-ArrowRight              move_to_next_buffer
+
+#Ctrl-Shift-Tab              move_to_previous_buffer
+Ctrl-Tab                    switch_between_open_files
+Ctrl-X {Ctrl}-B             switch_between_open_files
+
+#Ctrl-X K                    close_current_buffer  ### Doesn't exist, but there's a pull request for this from October 2024
+
+#Ctrl-/                      toggle_comment
+#Ctrl-L                      select_line
+
+#Alt-K                       scroll_viewport_up
+#Alt-E                       scroll_viewport_up_fast  # for some reason Alt-U didn't reach the window at all, so using Alt-E instead
+#Alt-PageUp                  scroll_viewport_up_fast
+#Alt-J                       scroll_viewport_down
+#Alt-D                       scroll_viewport_down_fast
+#Alt-PageDown                scroll_viewport_down_fast
+#Alt-H                       scroll_viewport_left
+#Alt-L                       scroll_viewport_right
+
+#Ctrl-Alt-ArrowUp            scroll_viewport_up
+#Ctrl-Alt-ArrowDown          scroll_viewport_down
+#Ctrl-Alt-ArrowLeft          scroll_viewport_left
+#Ctrl-Alt-ArrowRight         scroll_viewport_right
+
+#Alt-V                       move_cursor_to_viewport_center
+
+Ctrl-L                      center_viewport_on_cursor
+
+{Shift}-Ctrl-ArrowUp        move_up_to_empty_line
+{Shift}-Ctrl-ArrowDown      move_down_to_empty_line
+
+Alt-Shift-I                 add_cursors_to_line_ends
+Alt-Shift-Ctrl-I            add_cursors_to_line_starts
+
+Enter                       break_line
+Shift-Enter                 break_line
+Ctrl-Enter                  new_line_below_without_breaking
+Ctrl-Shift-Enter            new_line_above_without_breaking
+
+NumpadEnter                 break_line
+Shift-NumpadEnter           break_line
+Ctrl-NumpadEnter            new_line_below_without_breaking
+Ctrl-Shift-NumpadEnter      new_line_above_without_breaking
+
+Ctrl-O                      new_line_above_without_breaking
+Ctrl-M                      new_line_below_without_breaking
+
+Ctrl-1                      switch_to_left_editor
+Ctrl-2                      switch_to_right_editor
+#Ctrl-,                      switch_to_other_editor
+Ctrl-Shift-,                duplicate_editor
+
+Ctrl-ArrowLeft              switch_to_left_editor
+Ctrl-ArrowRight             switch_to_right_editor
+Ctrl-X O                    switch_to_other_editor
+
+# When panes come:
+# C-x w <#>
+# Ctrl-X W                    switch_to_numbered_pane # (?)
+
+Ctrl-Alt-Shift-ArrowLeft    move_editor_to_the_left
+Ctrl-Alt-Shift-ArrowRight   move_editor_to_the_right
+
+Ctrl-X N                    create_new_file
+Ctrl-X Shift-N              create_new_file_on_the_side
+
+Alt-Shift-ArrowUp           create_cursor_above
+Alt-Shift-ArrowDown         create_cursor_below
+Alt-A                       align_cursors
+
+Alt-Z                       toggle_line_wrap
+Alt-Shift-L                 toggle_line_numbers
+
+# Added after migration to version [16]
+#Ctrl-U                      change_case_cycle
+#Ctrl-R                      revert_select_word_or_create_another_cursor
+#Ctrl-Y                      move_selection_to_next_word
+#{Shift}-Meta-ArrowLeft      move_left_through_word
+#{Shift}-Meta-ArrowRight     move_right_through_word
+#{Shift}-Meta-Backspace      delete_left_through_word
+#{Shift}-Meta-Delete         delete_right_through_word
+
+
+[open file dialog]
+
+Enter                       open_entry_in_place
+Ctrl-Enter                  open_entry_on_the_side
+Ctrl-1                      open_entry_on_the_left
+Ctrl-2                      open_entry_on_the_right
+Shift-Enter                 open_entry_in_explorer
+
+Tab                         open_directory
+
+Backspace                   pop_directory
+
+
+[search dialog]
+
+Enter                       open_entry_in_place
+Ctrl-Enter                  open_entry_on_the_side
+Ctrl-1                      open_entry_on_the_left
+Ctrl-2                      open_entry_on_the_right
+
+Shift-Enter                 move_up  # an alternative way to move
+
+Ctrl-S                      open_entry_in_place
+Ctrl-Shift-S                move_up
+
+Alt-C                       toggle_case_sensitive
+Alt-W                       toggle_whole_word
+Alt-R                       toggle_regex_search
+
+# Added after migration to version [16]
+Tab                         focus_next_ui_element
+Shift-Tab                   focus_previous_ui_element
+
+
+[common]
+
+Alt-X                       show_commands
+Ctrl-Shift-P                show_commands
+
+Ctrl-Alt-P                  switch_to_project
+
+Ctrl-S                      search_in_buffer
+Ctrl-Alt-S                  search_in_project
+
+Ctrl-X Ctrl-F               navigate_to_file
+
+Ctrl-J                      go_to_line
+
+Ctrl-W                      cut
+Alt-W                       copy
+Ctrl-U                      paste # uncut
+Ctrl-Y                      paste # yank
+
+Ctrl-/                      undo
+Ctrl-Shift-/                redo
+
+#Ctrl-D                      select_word
+Ctrl-X A                    select_all
+
+Ctrl-X 0                    close_current_editor
+Ctrl-X 1                    close_other_editor
+
+Escape                      escape  # combines close_dialog and remove_additional_cursors
+Ctrl-G                      escape
+
+Ctrl-Shift-L                toggle_expand
+
+Ctrl-Shift-B                build_panel_toggle
+
+F11                         toggle_fullscreen
+Alt-Enter                   toggle_fullscreen
+
+# NOTE: in this editor the Shift key is hard-coded to extend selection when held
+{Shift}-ArrowUp             move_up
+{Shift}-Ctrl-ArrowUp        move_up_fast
+{Shift}-PageUp              move_up_one_page
+Ctrl-P                      move_up
+Alt-V                       move_up_one_page
+
+{Shift}-ArrowDown           move_down
+{Shift}-Ctrl-ArrowDown      move_down_fast
+{Shift}-PageDown            move_down_one_page
+Ctrl-N                      move_down
+Ctrl-V                      move_down_one_page
+
+{Shift}-ArrowLeft           move_left
+{Shift}-Alt-ArrowLeft       move_left_by_character_type
+{Shift}-Ctrl-ArrowLeft      move_left_through_word_throttled
+Ctrl-B                      move_left
+Alt-B                       move_left_by_character_type
+Alt-Shift-B                 move_left_through_word_throttled
+
+{Shift}-ArrowRight          move_right
+{Shift}-Alt-ArrowRight      move_right_by_character_type
+{Shift}-Ctrl-ArrowRight     move_right_through_word_throttled
+Ctrl-F                      move_right
+Alt-F                       move_right_by_character_type
+Alt-Shift-F                 move_right_through_word_throttled
+
+{Shift}-Home                jump_to_line_start
+{Shift}-End                 jump_to_line_end
+{Shift}-Ctrl-Home           jump_to_file_start
+{Shift}-Ctrl-End            jump_to_file_end
+
+Ctrl-A                      jump_to_line_start
+Ctrl-E                      jump_to_line_end
+Alt-A                       jump_to_file_start
+Alt-E                       jump_to_file_end
+
+{Shift}-Backspace           delete_left_char
+{Shift}-Delete              delete_right_char
+{Shift}-Alt-Backspace       delete_left_by_character_type
+{Shift}-Alt-Delete          delete_right_by_character_type
+{Shift}-Ctrl-Backspace      delete_left_by_character_type_fast
+{Shift}-Ctrl-Delete         delete_right_by_character_type_fast
+
+Ctrl-Plus                   increase_font_size
+Ctrl-Minus                  decrease_font_size
+Ctrl-0                      reset_font_size_to_default
+Ctrl-MouseMiddle            reset_font_size_to_default
+
+Ctrl-Shift-Alt-N            open_another_editor_instance
+F8                          go_to_next_build_error
+Ctrl-F8                     go_to_next_build_error_on_the_side
+Shift-F8                    go_to_previous_build_error
+Shift-Ctrl-F8               go_to_previous_build_error_on_the_side
+
+Enter                       open_entry_in_place
+Tab                         focus_next_ui_element
+Shift-Tab                   focus_previous_ui_element
+
+
+[[style]]
+
+theme: nonexistence
+
+[fonts]
+font:       fonts/Iosevka-Regular.ttc
+font_size:  14
+
+[colors]
+#background0:                            1E1E2EFF
+#background1:                            181825FF #7F849CFF
+#background2:                            00FF00FF
+#background3:                            181825FF #6C7086FF
+#background4:                            181825FF
+
+#selection_active:                       B4BEFE7F
+#selection_inactive:                     B4BEFE3F
+#selection_highlight:                    BAC2DEFF
+#search_result_active:                   89DCEBAF
+#search_result_inactive:                 89DCEB6F
+#scrollbar:                              313244FF
+#scrollbar_hover:                        45475AFF
+# scrollbar_background:                   181825FF
+# cursor:                                 6C7086FF
+# cursor_inactive:                        6C70867F
+# paste_animation:                        1C4449FF
+# splitter:                               181825FF
+# splitter_hover:                         11111BFF
+# letter_highlight:                       599999FF
+# list_cursor_lite:                       33CCCC19
+# list_cursor:                            33CCCC4C
+# shadow_dark:                            0E161C7F
+# shadow_transparent:                     0E161C00
+# text_input_label:                       A6ADC8FF
+# char_under_cursor:                      F5C2E7FF
+
+# ui_default:                             F5E0DCFF
+# ui_dim:                                 7F849CFF
+# ui_neutral:                             FF00FFFF
+# ui_warning:                             FAB387FF
+# ui_warning_dim:                         F2CDCDFF
+# ui_error:                               EBA0ACFF
+# ui_error_bright:                        F38BA8FF
+# ui_success:                             A6E3A19F
+
+# code_default:                           CDD6F4FF
+# code_comment:                           9399B2FF
+# code_type:                              89B4FAFF
+# code_function:                          F2CDCDFF
+# code_punctuation:                       A6ADC8FF
+# code_operation:                         BAC2DEFF
+# code_string:                            A6E3A1FF
+# code_value:                             EBA0ACFF
+# code_highlight:                         FF00FFFF #F8E2AFFF
+# code_error:                             F38BA8FF
+# code_warning:                           FAB387FF
+# code_keyword:                           CBA6F7FF
+
+# region_scope_export:                    15212AFF
+# region_scope_file:                      131C22FF
+# region_scope_module:                    1A2831FF
+# region_header:                          1A5152FF
+# region_success:                         226022FF
+# region_warning:                         986032FF
+# region_error:                           772222FF
+
+# build_panel_background:                 1A2831FF
+# build_panel_scrollbar:                  33CCCC19
+# build_panel_scrollbar_hover:            33CCCC4C
+# build_panel_scrollbar_background:       10191F4C
+# build_panel_title_bar:                  1C303AFF
+
+# # Added after migration to version [3]
+# region_heredoc:                         181825FF
+
+
+#########################################################
+
+
+
+background0:                            1E1E2EFF
+background1:                            181825FF #7F849CFF
+background2:                            1E1E2EFF # Affects the language list in the color preview
+background3:                            181825FF #6C7086FF
+background4:                            181825FF
+
+selection_active:                       B4BEFE7F
+selection_inactive:                     B4BEFE3F
+selection_highlight:                    BAC2DEFF
+search_result_active:                   89DCEBAF
+search_result_inactive:                 89DCEB6F
+scrollbar:                              313244FF
+scrollbar_hover:                        45475AFF
+scrollbar_background:                   181825FF
+cursor:                                 F5E0DCFF
+cursor_inactive:                        6C70867F
+paste_animation:                        1C4449FF
+splitter:                               181825FF
+splitter_hover:                         11111BFF
+letter_highlight:                       599999FF
+list_cursor_lite:                       45475AFF
+list_cursor:                            313244FF
+shadow_dark:                            0E161C7F
+shadow_transparent:                     0E161C00
+text_input_label:                       A6ADC8FF
+char_under_cursor:                      11111BFF
+
+ui_default:                             F5E0DCFF
+ui_dim:                                 7F849CFF
+ui_neutral:                             FF00FFFF
+ui_warning:                             FAB387FF
+ui_warning_dim:                         F2CDCDFF
+ui_error:                               EBA0ACFF
+ui_error_bright:                        F38BA8FF
+ui_success:                             A6E3A19F
+
+code_default:                           CDD6F4FF
+code_comment:                           9399B2FF
+code_type:                              F9E2AFFF
+code_function:                          89B4FAFF
+code_punctuation:                       F38BA8FF
+code_operation:                         89DCEBFF
+code_string_literal:                    A6E3A1FF
+code_value:                             FAB387FF
+code_highlight:                         FF00FFFF #F8E2AFFF
+code_error:                             F38BA8FF
+code_warning:                           FAB387FF
+code_keyword:                           CBA6F7FF
+
+region_scope_export:                    15212AFF
+region_scope_file:                      131C22FF
+region_scope_module:                    1A2831FF
+region_header:                          1A5152FF
+region_success:                         226022FF
+region_warning:                         986032FF
+region_error:                           772222FF
+
+build_panel_background:                 1A2831FF
+build_panel_scrollbar:                  33CCCC19
+build_panel_scrollbar_hover:            33CCCC4C
+build_panel_scrollbar_background:       10191F4C
+build_panel_title_bar:                  1C303AFF
+
+# Added after migration to version [3]
+region_heredoc:                         181825FF
+
+# Added after migration to version [5]
+code_invalid:                           F38BA8FF
+code_multiline_string:                  A6E3A1FF
+code_raw_string:                        A6E3A1FF
+code_char_literal:                      A6E3A1FF
+code_identifier:                        CDD6F4FF
+code_note:                              89DCEBFF
+code_number:                            FAB387FF
+code_multiline_comment:                 9399B2FF
+code_modifier:                          CBA6F7FF
+code_attribute:                         CBA6F7FF
+code_enum_variant:                      CDD6F4FF
+code_macro:                             89DCEBFF
+code_builtin_variable:                  FAB387FF
+code_builtin_function:                  89DCEBFF
+code_builtin_exception:                 89DCEBFF
+code_directive:                         CBA6F7FF
+code_directive_modifier:                CBA6F7FF
+code_header:                            CBA6F7FF
+code_header2:                           89DCEBFF
+code_header3:                           89DCEBFF
+code_header4:                           89DCEBFF
+code_header5:                           89DCEBFF
+code_header6:                           89DCEBFF
+
+# Added after migration to version [16]
+ruler:                                  6C70867F
+bracket_highlight:                      BAC2DEFF
+indent_guide:                           BAC2DEFF
+
+

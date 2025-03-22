@@ -1,0 +1,98 @@
+[16]  # Version number. Do not delete.
+
+# Based on the Catppuccin Mocha palette
+# https://catppuccin.com/palette
+[colors]
+background0:                            000021FF
+background1:                            00002EFF #7F849CFF
+background2:                            181635FF # Affects the language list in the color preview
+background3:                            263663FF #6C7086FF
+background4:                            0D102EFF
+
+selection_active:                       B4BEFE7F
+selection_inactive:                     B4BEFE3F
+selection_highlight:                    BAC2DEFF
+search_result_active:                   89DCEBAF
+search_result_inactive:                 89DCEB6F
+scrollbar:                              A2A3A5FF
+scrollbar_hover:                        ECE9E4FF
+scrollbar_background:                   5D5F63FF
+cursor:                                 E4575DFF
+cursor_inactive:                        AD51637F
+paste_animation:                        1C4449FF
+splitter:                               181825FF
+splitter_hover:                         11111BFF
+letter_highlight:                       599999FF
+list_cursor_lite:                       E46373FF
+list_cursor:                            263663FF
+shadow_dark:                            1111187F
+shadow_transparent:                     11111810
+text_input_label:                       A6ADC8FF
+char_under_cursor:                      11111BFF
+
+ui_default:                             F5E0DCFF
+ui_dim:                                 7F849CFF
+ui_neutral:                             FF00FFFF
+ui_warning:                             FAB387FF
+ui_warning_dim:                         FAB3874C
+ui_error:                               EBA0ACFF
+ui_error_bright:                        F38BA8FF
+ui_success:                             A6E3A19F
+
+code_default:                           739AC8FF
+code_identifier:                        919AC0FF
+code_macro:                             A2A3A5FF
+code_comment:                           5D354FFF
+code_multiline_comment:                 5D354FFF
+code_directive:                         8F6694FF
+code_directive_modifier:                8F6694FF
+code_keyword:                           FFFFFFFF
+code_type:                              FFDB5DFF
+code_function:                          AD5163FF
+code_punctuation:                       776F7BFF
+code_operation:                         8FB5E1FF
+code_value:                             8F9B52FF
+code_number:                            E4575DFF
+code_string_literal:                    E4575DFF
+code_multiline_string:                  E4575DFF
+code_raw_string:                        E4575DFF
+code_char_literal:                      E4575DFF
+code_highlight:                         FFEC65FF
+code_error:                             FF90A7FF
+code_warning:                           8F6694FF
+code_invalid:                           F38BA8FF
+code_note:                              46ACA5FF
+code_modifier:                          CBA6F7FF
+code_attribute:                         7B8AB5FF
+code_enum_variant:                      7B8AB5FF
+code_builtin_variable:                  FFFFFFFF
+code_builtin_function:                  FFFFFFFF
+code_builtin_exception:                 FFFFFFFF
+code_header:                            CBA6F7FF
+code_header2:                           89DCEBFF
+code_header3:                           89DCEBFF
+code_header4:                           89DCEBFF
+code_header5:                           89DCEBFF
+code_header6:                           89DCEBFF
+
+region_scope_export:                    1E1E2EFF
+region_scope_file:                      11111BFF
+region_scope_module:                    181825FF
+region_heredoc:                         313244FF
+region_header:                          1A5152FF
+region_success:                         226022FF
+region_warning:                         986032FF
+region_error:                           772222FF
+
+build_panel_background:                 13102EFF
+build_panel_scrollbar:                  313244FF
+build_panel_scrollbar_hover:            45475AFF
+build_panel_scrollbar_background:       181825FF
+build_panel_title_bar:                  263663FF
+
+# Added after migration to version [5]
+
+# Added after migration to version [16]
+ruler:                                  9399B27F
+bracket_highlight:                      BAC2DEFF
+indent_guide:                           BAC2DEFF
