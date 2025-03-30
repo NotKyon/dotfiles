@@ -132,6 +132,16 @@ build_working_dir: %FILE_DIR%
 #key_binding: Ctrl-X Ctrl-M {C -strict-style -vettrl}-F
 key_binding: F7
 
+[Build]
+build_command: cmd.exe /C D:\Repository\NotKyon\dotfiles\focus\scripts\GeneralBuild.cmd "%FILE%"
+build_working_dir: %FILE_DIR%
+key_binding: Ctrl-X Ctrl-M
+
+[Run]
+build_command: cmd.exe /C D:\Repository\NotKyon\dotfiles\focus\scripts\GeneralBuild.cmd "%FILE%" run
+build_working_dir: %FILE_DIR%
+key_binding: Ctrl-X Ctrl-R
+
 # [[build commands]]
 # build_working_dir:      <build working dir -strict-style -vet for all commands>
 # open_panel_on_build:    true  #  <- any settings specified here will apply to all commands unless overridden
@@ -404,6 +414,7 @@ Alt-E                       jump_to_file_end
 {Shift}-Alt-Delete          delete_right_by_character_type
 {Shift}-Ctrl-Backspace      delete_left_by_character_type_fast
 {Shift}-Ctrl-Delete         delete_right_by_character_type_fast
+Ctrl-D                      delete_right_char
 
 Ctrl-Plus                   increase_font_size
 Ctrl-Minus                  decrease_font_size
