@@ -97,7 +97,14 @@ exit /B 1
 	if /i "%2"=="run" (
 		set odin_subcommand=run
 	)
-	odin %odin_subcommand% "%1" -strict-style -vet -collection:pkg=%~d0:\Repository\NotKyon\pkg
+	set _RootDrive=%~d0
+	set _PkgCollection=%_RootDrive%\Repository\NotKyon\pkg
+	if exist "%_PkgCollection%" (
+		set "_CollectionFlags=-collection:pkg=%_PkgCollection%"
+	) else (
+		set "_CollectionFlags="
+	)
+	odin %odin_subcommand% "%1" -strict-style -vet %_CollectionFlags% -file
 	exit /B %ERRORLEVEL%
 
 :c_build
