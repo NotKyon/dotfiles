@@ -23,10 +23,14 @@
 ;; GUI customization
 ; GUI BS
 (setq inhibit-splash-screen t)
+
 (customize-set-variable 'menu-bar-mode nil)
 (customize-set-variable 'tool-bar-mode nil)
-(menu-bar-mode -1)      ; Disable the menu bar outright
-(tool-bar-mode -1)      ; Disable the tool bar outright
+
+(when (display-graphic-p)
+  (menu-bar-mode -1)    ; Disable the menu bar outright
+  (tool-bar-mode -1)    ; Disable the tool bar outright
+)
 
 
 ; Text editor stylization
@@ -37,6 +41,9 @@
 ; Display line numbers in the margin and highlight the current line
 (global-display-line-numbers-mode 1)
 (global-hl-line-mode)
+(unless (display-graphic-p)
+  (set-face-background 'hl-line "#333333")
+)
 
 ; Fix annoying scroll behavior.
 (setq scroll-error-top-bottom t)
@@ -309,8 +316,10 @@ Version: 2015-10-01"
 (global-set-key (kbd "M-n") 'move-text-down)
 
 ;; Theme
-(setq catppuccin-flavor 'mocha) ; or 'latte, 'macchiato, or 'mocha
-(rc/require-theme 'catppuccin)
+(when (display-graphic-p)
+  (setq catppuccin-flavor 'mocha) ; or 'latte, 'macchiato, or 'mocha
+  (rc/require-theme 'catppuccin)
+)
 
 (setq custom-file "~/.emacs-custom.el")
 (load-file (custom-file))
@@ -318,7 +327,9 @@ Version: 2015-10-01"
 (custom-set-faces
  '(whitespace-tab ((t (:foreground "#636363")))))
 
-(set-frame-font "Iosevka 12" nil t)
+(when (display-graphic-p)
+  (set-frame-font "Iosevka 12" nil t)
+)
 
 
 
@@ -551,14 +562,14 @@ Version: 2015-10-01"
 (load-file "~/.emacs.d/hlsl-mode.el")
 
 (rc/require 'nginx-mode
-			'php-mode
-			'powershell
-			'wgsl-mode
-			'd-mode
-			'go-mode
-			'markdown-mode
-			'glsl-mode
-			'typescript-mode)
+            'php-mode
+            'powershell
+            'wgsl-mode
+            'd-mode
+            'go-mode
+            'markdown-mode
+            'glsl-mode
+            'typescript-mode)
 
 
 
